@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perbandingan Harga Tiket Pesawat</title>
+    <style>
+        @media print {
+            body { margin: 0; }
+            .no-print { display: none; }
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #2c5aa0;
+            padding-bottom: 20px;
+        }
+        
+        .header h1 {
+            color: #2c5aa0;
+            font-size: 24px;
+            margin: 0;
+            font-weight: bold;
+        }
+        
+        .header h2 {
+            color: #666;
+            font-size: 18px;
+            margin: 10px 0 0 0;
+            font-weight: normal;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            background: #2c5aa0;
+            color: white;
+            padding: 12px 16px;
+            margin: 0 0 15px 0;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        th {
+            background: #f8f9fa;
+            color: #333;
+            font-weight: bold;
+            padding: 12px;
+            text-align: left;
+            border-bottom: 2px solid #dee2e6;
+        }
+        
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #dee2e6;
+            vertical-align: top;
+        }
+        
+        /* tr:nth-child(even) {
+            background: #f8f9fa;
+        } */
+        
+        .price {
+            font-weight: bold;
+            color: #2c5aa0;
+        }
+        
+        .total-row {
+            background: #e8f4f8 !important;
+            font-weight: bold;
+        }
+        
+        .summary-table {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .summary-table th {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .summary-table td {
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .summary-table .price {
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        .conclusion {
+            background: #f1f8e9;
+            padding: 20px;
+            border-left: 5px solid #4caf50;
+            border-radius: 5px;
+        }
+        
+        .conclusion h3 {
+            color: #2e7d32;
+            margin-top: 0;
+        }
+        
+        .conclusion ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .conclusion li {
+            margin-bottom: 8px;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2c5aa0;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        
+        .date-generated {
+            text-align: center;
+            color: #666;
+            font-size: 12px;
+            margin-top: 30px;
+            border-top: 1px solid #ddd;
+            padding-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="header">
+        <h1>PERBANDINGAN HARGA TIKET PESAWAT</h1>
+        <h2>Singkawang ↔ Jakarta vs Pontianak ↔ Jakarta</h2>
+    </div>
+
+    <div class="section">
+        <div class="section-title">1. Data Tiket Pergi</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Detail</th>
+                    <th>Singkawang → Jakarta</th>
+                    <th>Pontianak → Jakarta</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Maskapai</strong></td>
+                    <td>Super Air Jet (IU-2687)</td>
+                    <td>Lion Air (JT-877)</td>
+                </tr>
+                <tr>
+                    <td><strong>Tanggal</strong></td>
+                    <td>Kamis, 29 Mei 2025</td>
+                    <td>Kamis, 29 Mei 2025</td>
+                </tr>
+                <tr>
+                    <td><strong>Waktu</strong></td>
+                    <td>10:05 - 11:35 (1j 45m)</td>
+                    <td>10:05 - 11:35 (1j 30m)</td>
+                </tr>
+                <tr>
+                    <td><strong>Penumpang</strong></td>
+                    <td>3 Dewasa</td>
+                    <td>3 Dewasa</td>
+                </tr>
+                <tr>
+                    <td><strong>Harga</strong></td>
+                    <td class="price">IDR 3.625.800</td>
+                    <td class="price">IDR 3.068.175</td>
+                </tr>
+                <tr>
+                    <td><strong>Diskon</strong></td>
+                    <td>-IDR 21.648</td>
+                    <td>-IDR 10.500</td>
+                </tr>
+                <tr class="total-row">
+                    <td><strong>TOTAL</strong></td>
+                    <td class="price">IDR 3.604.152</td>
+                    <td class="price">IDR 3.057.675</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <div class="section-title">2. Data Tiket Pulang</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Detail</th>
+                    <th>Jakarta → Singkawang</th>
+                    <th>Jakarta → Pontianak</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Maskapai</strong></td>
+                    <td>Super Air Jet (IU-686)</td>
+                    <td>Super Air Jet (IU-700)</td>
+                </tr>
+                <tr>
+                    <td><strong>Tanggal</strong></td>
+                    <td>Minggu, 1 Juni 2025</td>
+                    <td>Minggu, 1 Juni 2025</td>
+                </tr>
+                <tr>
+                    <td><strong>Waktu</strong></td>
+                    <td>06:55 - 08:35 (1j 40m)</td>
+                    <td>13:25 - 14:55 (1j 30m)</td>
+                </tr>
+                <tr>
+                    <td><strong>Penumpang</strong></td>
+                    <td>2 Dewasa</td>
+                    <td>2 Dewasa</td>
+                </tr>
+                <tr>
+                    <td><strong>Harga</strong></td>
+                    <td class="price">IDR 2.656.960</td>
+                    <td class="price">IDR 2.090.760</td>
+                </tr>
+                <tr>
+                    <td><strong>Diskon</strong></td>
+                    <td>-IDR 9.918</td>
+                    <td>-IDR 7.796</td>
+                </tr>
+                <tr class="total-row">
+                    <td><strong>TOTAL</strong></td>
+                    <td class="price">IDR 2.647.042</td>
+                    <td class="price">IDR 2.082.964</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <div class="section-title">3. Total Biaya per Rute</div>
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th>Rute</th>
+                    <th>Total Pergi</th>
+                    <th>Total Pulang</th>
+                    <th>Gabungan Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Singkawang-Jakarta</strong></td>
+                    <td class="price">IDR 3.604.152</td>
+                    <td class="price">IDR 2.647.042</td>
+                    <td class="price">IDR 6.251.194</td>
+                </tr>
+                <tr>
+                    <td><strong>Pontianak-Jakarta</strong></td>
+                    <td class="price">IDR 3.057.675</td>
+                    <td class="price">IDR 2.082.964</td>
+                    <td class="price">IDR 5.140.639</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <div class="section-title">4. Kesimpulan</div>
+        <div class="conclusion">
+            <h3>📊 Ringkasan Perbandingan</h3>
+            <ul>
+                <li><strong>Selisih Harga:</strong> Pontianak lebih murah <span class="highlight">IDR 1.110.555</span></li>
+                <li><strong>Maskapai:</strong>
+                    <ul>
+                        <li>Pergi: Lion Air (Pontianak) lebih ekonomis</li>
+                        <li>Pulang: Keduanya menggunakan Super Air Jet</li>
+                    </ul>
+                </li>
+                <li><strong>Waktu:</strong> Pilihan lebih pagi tersedia untuk rute Singkawang</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="date-generated">
+        Dokumen dibuat pada: <span id="currentDate"></span>
+    </div>
+
+    <script>
+        // Set current date
+        document.getElementById('currentDate').textContent = new Date().toLocaleDateString('id-ID', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+    </script>
+</body>
+</html>
